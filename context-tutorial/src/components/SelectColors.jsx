@@ -1,7 +1,7 @@
 import React from "react";
 import { ColorConsumer } from "../contexts/ColorContext";
 const colors = [
-  "aqua",
+  "red",
   "orange",
   "yellow",
   "green",
