@@ -1,0 +1,64 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #e9ecef;
+}
+
+.TodoTemplate {
+  width: 512px;
+  margin: 0px auto;
+  margin-top: 6rem;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.app-title {
+  background: #22b8cf;
+  color: white;
+  height: 4rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  background: white;
+}
+
+.TodoList {
+  min-height: 320px;
+  max-height: 513px;
+  overflow: auto;
+}
+.TodoListitem {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #dee2e6;
+}
+.TodoListitem:nth-child(even) {
+  background-color: #f8f9fa;
+}
+svg {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.checkBox,
+.checkBox_checked {
+  cursor: pointer;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.checkBox_checked svg {
+  color: #22b8cf;
+}
+.checkBox_checked .text {
+  color: #adb5bd;
+  text-decoration: line-through;
+}
+.remove {
+  cursor: pointer;
+  color: #ff6b6b;
+}
