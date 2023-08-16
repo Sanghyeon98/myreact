@@ -1,0 +1,15 @@
+.root,
+.grid div {
+  border: 5px solid red;
+  font-weight: bold;
+  padding: 10px;
+  margin: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+/* .grid > div {
+  
+} */
