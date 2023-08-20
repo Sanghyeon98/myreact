@@ -19,7 +19,7 @@ const Categories = ({ category, onSelect }) => {
         <div className="category" key={c.id}>
           <NavLink
             // className={({ isActive }) => (isActive ? "active" : undefined)}
-            to={c.name === "all" ? "/" : "/" + c.id}
+            to={c.name === "all" ? "/" : "/" + c.name}
           >
             {c.title}
           </NavLink>

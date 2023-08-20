@@ -1,14 +1,14 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import NewsPage from "../../news-app/src/components/NewsPage";
+import NewsPage from "./components/NewsPage";
 
 function App() {
   return (
     <div>
-      <Route>
+      <Routes>
         <Route path="/:category?" element={<NewsPage />} />
-      </Route>
+      </Routes>
     </div>
   );
 }

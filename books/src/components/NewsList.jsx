@@ -9,38 +9,47 @@ import usePromise from "../lib/usePromise";
 const NewsList = ({ category }) => {
   const [loading, response, error] = usePromise(() => {
     const url = "https://dapi.kakao.com/v3/search/book?target=title";
-    const query = category === "all" ? "" : "&category=" + category;
-    const apikey = "&apikey=9a2f6998dcfe443f9f284dfdcb3091cd";
-    return axios.get(url + query + apikey);
+    const query = "&query=Java";
+    // const query = category === "all" ? "" : "&category=" + category;
+    // const apikey = "a72ff07499a78a559bb7e6bccb465597";
+    const config = {
+      headers: "Authorization: KakaoAK a72ff07499a78a559bb7e6bccb465597",
+    };
+    const response = axios.get(url + query, config);
+    console.log(response);
+    console.log("--------------------------------------------------------");
+    console.log("--------------------------------------------------------");
+    console.log("--------------------------------------------------------");
+    console.log(response.data);
   }, [category]);
 
-  // const sampleArticle = {
-  //   title: "제목",
-  //   description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
-  //   url: "https://www.naver.com",
-  //   urlToImage: "",
-  // };
-  // const [articles, setArticles] = useState(null);
+  const sampleArticle = {
+    title: "제목",
+    description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+    url: "https://www.naver.com",
+    urlToImage: "",
+  };
+  const [articles, setArticles] = useState(null);
 
-  // const [loading, setLoding] = useState(false);
+  const [loading, setLoding] = useState(false);
 
-  // useEffect(() => {
-  //   setLoding(true);
-  //   const faetchData = async () => {
-  //     try {
-  //       const url = "https://newsapi.org/v2/top-headlines?country=kr";
-  //       const query = category === "all" ? "" : "&category=" + category;
-  //       const apikey = "&apikey=9a2f6998dcfe443f9f284dfdcb3091cd";
-  //       const response = await axios.get(url + query + apikey);
-  //       setArticles(response.data.articles);
-  //       console.log(response.data.articles);
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //     setLoding(false);
-  //   };
-  //   faetchData();
-  // }, [category]);
+  useEffect(() => {
+    setLoding(true);
+    const faetchData = async () => {
+      try {
+        const url = "https://newsapi.org/v2/top-headlines?country=kr";
+        const query = category === "all" ? "" : "&category=" + category;
+        const apikey = "&apikey=9a2f6998dcfe443f9f284dfdcb3091cd";
+        const response = await axios.get(url + query + apikey);
+        setArticles(response.data.articles);
+        console.log(response.data.articles);
+      } catch (e) {
+        console.log(e);
+      }
+      setLoding(false);
+    };
+    faetchData();
+  }, [category]);
 
   if (loading) {
     return <div className="newsListBlock">data loading ....... </div>;
@@ -54,7 +63,7 @@ const NewsList = ({ category }) => {
     return <div className="newsListBlock">에러 발생</div>;
   }
   const [articles] = response.data;
-
+  console.log(response.data);
   return (
     <div className="newsListBlock">
       {articles.map((article) => (
